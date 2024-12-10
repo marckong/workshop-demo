@@ -1,0 +1,19 @@
+_id: fld_f471747074ed4955a2158fb10adf8e58
+type: RequestGroup
+parentId: wrk_d248e1090dd04d8aa8ff62d332441f5c
+modified: 1733852006609
+created: 1733851634448
+name: assert successful grocery addition and clean up
+description: just a test tag
+environment: {}
+environmentPropertyOrder: null
+metaSortKey: -1733851634448
+preRequestScript: null
+afterResponseScript: null
+authentication:
+  type: apikey
+  disabled: false
+  key: Authorization
+  value: "{{ _.api_key }}"
+  addTo: header
+headers: null

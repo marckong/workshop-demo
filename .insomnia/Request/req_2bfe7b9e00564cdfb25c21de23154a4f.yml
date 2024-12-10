@@ -1,0 +1,32 @@
+_id: req_2bfe7b9e00564cdfb25c21de23154a4f
+type: Request
+parentId: fld_f471747074ed4955a2158fb10adf8e58
+modified: 1733852093642
+created: 1733852086914
+url: "{{ _.base_url }}/get_groceries"
+name: Get the list of groceries with a new item added
+description: Get the list of groceries
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+preRequestScript: null
+metaSortKey: -1733851634489
+isPrivate: false
+pathParameters: null
+afterResponseScript: |+
+  
+  insomnia.test('Check if status is 200', () => {
+      insomnia.expect(insomnia.response.code).to.eql(200);
+  	
+  		const jsonBody = insomnia.response.json();
+  		insomnia.expect(jsonBody.groceries.length).to.eql(1);
+  });
+
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,34 @@
+_id: req_ecacc2a3dfa1484eb69d014283ee7686
+type: Request
+parentId: wrk_d248e1090dd04d8aa8ff62d332441f5c
+modified: 1733851908924
+created: 1733851703685
+url: "{{ _.base_url }}/get_token"
+name: get token
+description: ""
+method: GET
+body: {}
+parameters: []
+headers:
+  - name: User-Agent
+    value: insomnia/10.2.1-beta.1
+authentication: {}
+preRequestScript: null
+metaSortKey: -1733851703685
+isPrivate: false
+pathParameters: []
+afterResponseScript: |+
+  
+  insomnia.test('Check if status is 200', () => {
+      insomnia.expect(insomnia.response.code).to.eql(200);
+  	
+  		const jsonBody = insomnia.response.json();
+  		insomnia.environment.set("api_key", jsonBody.token);
+  });
+
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
